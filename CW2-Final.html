@@ -1,0 +1,617 @@
+﻿<!DOCTYPE html>
+<head>
+  <title>Coursework 2 – Data Visualisation with JavaScript</title>
+  <meta charset="utf-8">
+  <script src="https://cdn.jsdelivr.net/npm/vega@4.3.0/build/vega.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc10/build/vega-lite.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.24.1/build/vega-embed.js"></script>
+  <style media="screen">
+    /* Add space between Vega-Embed links  */
+    .vega-actions a {margin-right: 5px;display: none;}
+  </style>
+</head>
+
+
+<body>
+  <h1>Coursework 2 – Data Visualisation with JavaScript (CSD 4060)</h1>
+  <h2>Prof. Kai Xu</h2>
+  <h3>Gourabjit Banerjee - M00686738</h3>
+  <h4>2018-2019</h4>
+  <!-- Container for the visualization -->
+  <br/>
+  <h4>Analysis Question 1</h4>
+  <h5>(a) Characterize the past and most recent situation with respect to chemical contamination in the Boonsong Lekagul waterways. <br />
+      (b) Do you see any trends of possible interest in this investigation? <br />
+      Your submission for this questions should contain no more than 10 visualisations and 1000 words. <br />
+  </h5>
+  <!-- <div><img src="Waterways Final.jpg" alt="Waterways" height="600" width="600"></div> -->
+  <div><table>
+      <h4>Answer 1</h4>
+      <h5>
+        The dataset type is table having attributes measures, value, location, etc.
+For our analyses we have separated the excel file containing the data into 3 different files, as below:
+<br />We have separated the data and produced different excel based on the units such as Milligram(mg), Microgram(ug), and Water Temperature(C).
+<br /><br />
+Since, the chemicals which are in microgram are found in a much lesser quantity than those in milligrams, multiplying by 1000 would give us an improper scale to compare and it will be difficult to visualize and understand the presence of such chemicals.
+Again temperature has a completely diferent scale, and so we have produced a separated excel for that too.
+<br /><br />
+The excel has been divided to:
+<br />
+Boonsong Lekagul waterways readings(mg).xslx<br />
+Boonsong Lekagul waterways readings(ug).xslx<br />
+Boonsong Lekagul waterways readings(wt).xslx<br />
+<br />
+<br />
+
+Answer 1 (a) 
+<br />
+<br />
+Fig 1 & 3, shows the presence of the chemicals over years in the BL Waterways, in milligrams/ micrograms and how much it is found over time separated by units in a Bubble Plot.
+<br />Fig 2 & 4, summarizes and shows how much of these chemicals are present through a boxplot vis.
+<br /><br />
+Fig 1, Vis shows 
+Ammonium, Petroleum hydrocarbons, Silica, Total Organic Carbons has a presence in recent years in the waterways
+<br />While, Chlorides, Dissolved Silicates, Fecal Coliforms, Fecal Streptococci, Iron, Macrozoobenthos, Magnesium, Manganese, Nitrates, Sulphates, Total Coliforms has a throughout present in the waterways.
+<br /><br />
+To understand in how much quantity of these chemicals are present we use Vis Fig 2.
+<br />The upper and lower quartiles as shown through boxplot helps us to understand the quantity in which these are found and therefore makes it easier to assess whether the findings are of concern and has a probable impact on the waterways.
+<br /><br />
+For Example,
+We find Ammonium, Iron to be found in the waterways throughout the years but when we look out the boxplot vis, we find the range of finding these chemicals are pretty less.
+Silica, Sulphates, Organic Carbons, Coliforms are present in the waterways in higher quantities than expected.
+<br /><br />
+Fig 3, Vis shows, 
+<br />AGOC-3A, AOX, Arsenic, Barium, Methylosmoline has a presence in recent years in the waterways
+<br />While, Cadmium, Chromium, Copper, Lead, Nickel, Zinc has a throughout present in the waterways.
+<br /><br />
+If we study the boxplot vis, Fig 4, we will understand, AGOC-3A, Arsenic, Cadmium, Chromium, Lead Mercury , Methylosmoline, Nickel, Selenium, Simazine, Tetrachloromethane findings in quantities.
+<br /><br />
+Therefore, Fig 1-4, gives us a view of which chemicals we found at waterways over time and its presence in units with the boxplots. The boxplot magnifies and helps us to understand the range & presence of the chemicals in quantities, which are not found in huge quantities like zinc, magnesium, lead, copper and oxygen.
+
+<br /><br /><br />
+Fig. 1 & Fig. 3 
+<br />Presence of chemicals (in mg & ug) found over time at different locations are shown using Table Bubble Plot.
+<br />Attributes are YearMonth (temporal), Measure (nominal).
+<br />Size is used with property aggregate(mean), to get the mean of values of the chemical at respective month of the year.
+<br />Mark used here is circle, and Magnitude Channel is Area and Shape represented by a circle. This channel best represent the difference in value of the chemicals and easily identifiable due to the shape and area.
+<br />Transformation used is Filter, to filter out the extreme range/outliers of data of value attribute, the filter used is lt(less than).
+<br /><br />
+Fig. 2 &  Fig. 4 
+<br />Presence of chemicals (in mg & ug) at different locations shown using Boxplot.
+<br />Attributes are Value (quantitative), Measure (nominal).
+<br />Mark used here is Turkey Box Plot, Size property represents size of the boxplot.
+<br />The extent property used is 1.5, to view the whiskers and outlier point
+<br />Transformation used is Filter, to filter out the extreme range/outliers of data of value attribute, the filter used is lt(less than).
+<br />
+<br /><br /><br />
+Answer 1 (b) 
+<br /><br />
+Fig 5-8 shows the presence of chemicals in Kohsoom and Boonsri respectively.
+<br />We can observe that there is a sudden jump in the presence of certain chemical values which indicates there must be some activity going on at the site. These chemicals are Anionic active Surfactants, Phosphorous, Nitrates, Arsenic , Magnesium, Lead, Nickel, Zinc. 
+<br />Additionally we find the presence of Total Organic Carbon in Boonsri waters.
+<br /><br />
+We also find presence of certain chemicals near the dumping site in recent years, which are found as factory wastes in the waterways of Kohsoom and Boonsri. These chemicals are Chlorodinine, Mercury, AGOC-3A & Methylosmoline
+<br /> <br />
+Therefore,
+Presence of chemicals such as Chlorodinine, Mercury, AGOC-3A & Methylosmoline in recent years and also spike in the above mentioned chemicals clearly states that there the waterways near the dumping site has been contaminated.
+<br /><br />
+In Fig 5-8, 
+<br />We are searching for presence of chemicals (in mg & ug) over years in Kohsoom & Boonsri using a Bubble Plot.
+<br />Attributes are Time (temporal), Measure (nominal).
+<br />Mark used here is circle, Magnitude Channel is Area and Shape represented by a circle. This channel best represent the difference in value of the chemicals and easily identifiable due to the shape and area.
+<br />Transformation used are Filters, 
+<br />(a) to filter out only one location respectively
+<br />(b) to filter out the extreme range/outliers of data of value attribute, the filter used is lt(less than).
+<br />Sorting is used to sort the chemicals with significant presence, for a better visual.
+        </h5>
+      
+      <tr>
+        <br/><td><div id="vis92" style="border:1px solid black">Vis 92</div></td>
+        <br/><td><div id="vis91" style="border:1px solid black">Vis 91</div></td>
+    </tr>
+  </table></div>
+  <br/>
+  <div><table>
+
+  <br/><td><div id="vis9a2" style="border:1px solid black">Vis 9a2</div></td>
+  <br/><td><div id="vis9a1" style="border:1px solid black">Vis 9a1</div></td>
+
+</table></div>
+<br/>
+<div><table>
+  <br/><td><div id="vis501" style="border:1px solid black">Vis 501</div></td>
+  <br/><td><div id="vis502" style="border:1px solid black">Vis 502</div></td>
+</table></div>
+<div><table>
+  <br/><td><div id="vis50a1" style="border:1px solid black">Vis 50a1</div></td>
+  <br/><td><div id="vis50a2" style="border:1px solid black">Vis 50a2</div></td>
+</table></div>
+
+<br/><br/><br/><br/>
+  <h4>Analysis Question 2</h4>
+    <h5>What anomalies do you find in the waterway samples dataset? <br /> 
+      How do these affect your analysis of potential problems to the environment? <br /> 
+      Is the Hydrology Department collecting sufficient data to understand the comprehensive situation across the Preserve? <br /> 
+      What changes would you propose to make in the sampling approach to best understand the situation? <br /> 
+      Your submission for this question should contain no more than 6 visualisations and 500 words.<br />
+    </h5>
+    <div><table>
+      <h4>Answer 2</h4> 
+      <h5>
+
+        <br/>The Dataset has extreme values and outliers, Fig 9, shows a Heatmap of all the chemicals, where we can see no clear representation of data due to very high value of parameters. Whereas after processing the data, adding a filter and showing only data in micrograms units, we can see visually the presence of certain chemicals.
+        <br/>Also, from the white coloured spaces in the Heatmap it is clear that data is not sufficiently collected for every chemical.
+        <br/><br/>
+        Fig 11 shows the count of records of chemical samples collected for each waterway. There is a high disparity in count of collection of data. Tansanee, Decha and Achara has the least no of records among over all data collection. Also, there are differences in data collection counts for each chemical on waterways.
+        <br/><br/>
+        Fig 12 shows that sample collection has not been consistent over the years, with some waterways like Kohsoom, Basarakhan etc. Annd for some areas there have been absolutely no collection like, achara, Tansanee, Decha.
+        <br/><br/>
+        There has not been sufficient and regular data collection in every area and on a consistent basis. This chemical contamination reports prepared from these data will lack accuracy and will lead to a biased report. Sample data must be collected on a regular  basis and from all the waterways for a better study of the waterway contamination.
+        <br/><br/>
+        
+        In Fig 9 & 10, 
+        <br/>HeatMap showing dataset Anomaly 
+        <br/>Attributes are Locations(nominal), Measure (nominal).
+        <br/>Color is used with property aggregate(mean), to get mean value of chemicals
+        <br/>Mark used here is rectangle, and Magnitude Channel is color and Shape represented by a rectangle. Color helps in easily identifying the differences in values.
+        <br/>This channel best represent the difference in value of the chemicals and easily identifiable due to the shape and area.
+        <br/>Transformation used are Filters, to filter out the extreme range/outliers of data of value attribute, the filter used is lt(less than).
+        <br/><br/>
+        
+        In Fig. 11 - Count of records of chemicals represented by bar charted, stacked by location
+        <br/>Attributes are Measure (nominal) and No of Records (quantitative - derived data of count of Id attribute, based on specific row ‘locations’ and chemical.)
+        <br/>Mark used here is bar, Magnitude Channel is length represented by a line.
+        <br/>This bar best represent the difference in value of the chemicals and length of the line defines the magnitude of the value and is easily comparable with the other values.
+        <br/><br/>
+        
+        Fig. 12 - Count of records collected over time represented by bar charted, stacked by location
+        <br/>Attributes are Time (temporal) and No of Records (quantitative - derived data of count of Id attribute, based on specific row ‘locations’ and chemical.)
+        <br/>Mark used here is bar, Magnitude Channel is length represented by a line.
+        <br/>This bar best represent the difference in value of the chemicals and length of the line defines the magnitude of the value and is easily comparable with the other values.
+        <br/><br/><br/>
+
+      </h5>
+        <tr>            
+          <br/><td><div id="vis5" style="border:1px solid black">Vis 5</div></td>
+          <br/><td><div id="vis5a" style="border:1px solid black">Vis 5a</div></td>
+        </tr>
+        </table>
+      </div>
+
+      <br/><div id="vis8" style="border:1px solid black">Vis 8</div>
+      <br/><div id="vis81" style="border:1px solid black">Vis 81</div>
+      <br/><br/><br/>
+
+
+  <h3>Analysis Question 3</h3>
+  <h5>After reviewing the data, do any of your findings cause particular concern for the Pipit or other wildlife? <br />
+      Would you suggest any changes in the sampling strategy to better understand the waterways situation in the Preserve? <br />
+      Your submission for this question should contain no more than 6 visualisations and 500 words. <br /> 
+  </h5>
+  <h4>Answer 3</h4>
+  <h5>
+
+    Fig 13 & 14 shows there are toxic chemicals like lead, manganese, Barium, AOX, etc found in the waterways data in alarming quantities. 
+    <br/>These chemicals lead to health issues of the wildlife.Also it is found that Total Coliform, Fecal Coliform are found in water over years. These bacteria are very dangerous to health of birds and animals. These findings reinstates that chemical contamination and presence of Coliforms bacteria in water is a concern for the Pipit and other wildlife.
+    <br/><br/>Fig 15, shows Presence of high quantity of Arsenic, and other hazard chemicals and in recent times in the waterways which are against a sustainable environment for the wildlife.
+    <br/><br/>
+    Apart from water, there should also be study on soil samples. The wildlife areas and there counts & presence on different animals and aquatic animals should be monitored. Precipitation of rain and the temperature of the wildlife should be recorded on a regular basis.
+    <br/>
+    <br/>
+    In Fig 13 & 14, 
+    <br/>Presence of chemicals at different locations are shown using Table Bubble Plot.
+    <br/>Attributes are Locations(nominal), Measure (nominal).
+    <br/>Size is used with property aggregate(median), to not get affected by the outliers.
+    <br/>Mark used here is circle, and Magnitude Channel is Area and Shape represented by a circle, 
+    <br/>This circle best represent the difference in value of the chemicals and easily identifiable due to the shape and area(magnitude). 
+    <br/>Transformation used are Filters, 
+    <br/>(a) to filter out only one location 
+    <br/>(b) to filter out the extreme range/outliers of data of value attribute, the filter used is lt(less than).
+    <br/>Sorting is used to sort the chemicals together which are present in the waterways for a better visual.
+    <br/><br/>
+    In Fig 15, 
+    <br/>Presence and trends of hazardous chemicals at all locations are shown using a Colored Bubble Plot.
+    <br/>Attributes are Locations(nominal), Time(temporal).
+    <br/>Size is used with property aggregate(mean), to get an average value of chemicals from all the locations.
+    <br/>Mark used here is circle, Magnitude Channel is Area and Shape and Color represented by a circle.
+    <br/>This circle best represent the difference in value of the chemicals and easily identifiable due to the shape and area(magnitude). 
+    <br/>Color property is used on measures, which are categorical attributes and helps in identifying the chemicals from each other.
+    <br/>Transformation used are Filters, to filter out specific chemicals with oneOf property.
+    <br/><br/><br/>    
+
+  </h5>
+  <div><table>
+      <td><div id="vis70a1" style="border:1px solid black">Vis 70a1</div></td>
+      <td><div id="vis70a2" style="border:1px solid black">Vis 70a2</div></td>
+    </table>
+  </div>
+  <br/>
+    <div id="vis2" style="border:1px solid black">Vis 2</div>
+
+
+  <script>
+
+
+
+var vlSpec92 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "width": 300, "height": 900, 
+  "title": "Fig. 1 - All Chemicals (in milligrams) found over time",
+
+  "data": {"url": "Boonsong Lekagul waterways readings(mg).csv"},
+  "mark": "circle",
+        "transform": [
+          // {"filter": {"field": "location", "equal": "Kohsoom"}
+            {"filter": {"field": "value", "lt": "1000"}}
+        ],
+  "encoding": {
+    "y": {
+      "field": "measure",
+      "type": "nominal",
+      // "sort": {"op": "mean", "field": "value"}
+    },
+    "x": {
+      "timeUnit": "yearmonth",      
+      "field": "sample date",
+      "type": "temporal",
+      "title": "Year Month",
+    },
+    "size": {
+      "field": "value",
+      "type": "quantitative",
+      "aggregate": "mean",
+    }
+  }
+}
+// ALL chemicals with high presence ALL Area
+vegaEmbed("#vis92", vlSpec92);
+
+var vlSpec91 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "width": 300, "height": 900, 
+  "title": "Fig. 2 - Boxplot showing range of Chemicals (in milligrams) which are found in lesser quantity",
+  "data": {"url": "Boonsong Lekagul waterways readings(mg).csv"},
+  "mark": {
+  "type": "boxplot",
+  // "extent": "min-max"
+  "extent": "1.5"
+  },
+  "transform": [
+  // {"filter": {"field": "measure", "equal": "Iron"}},
+  {"filter": {"field": "value", "lt": "100"}}
+  ],
+  "encoding": {
+  "y": {
+  "field": "measure",
+  "type": "ordinal",
+  // "sort": {"op": "mean", "field": "value"}
+  },
+  "x": {
+  "field": "value",
+  "type": "quantitative",
+  "title": "Value",
+  },
+  "size": {"value": 15},
+  }
+ }
+// Boxplot of ALL chemicals with high presence
+vegaEmbed("#vis91", vlSpec91);
+
+var vlSpec9a2 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "width": 300, "height": 900, 
+  "title": "Fig. 3 - All Chemicals (in micrograms) found over time",
+  "data": {"url": "Boonsong Lekagul waterways readings(ug).csv"},
+  "mark": "circle",
+        "transform": [
+          // {"filter": {"field": "location", "equal": "Kohsoom"}}
+        // {"filter": {"field": "value", "lt": "100"}}
+        ],
+  "encoding": {
+    "y": {
+      "field": "measure",
+      "type": "nominal",
+      // "sort": {"op": "mean", "field": "value"}
+    },
+    "x": {
+      "timeUnit": "yearmonth",      
+      "field": "sample date",
+      "type": "temporal",
+      "title": "Year Month",
+    },
+    "size": {
+      "field": "value",
+      "type": "quantitative",
+      // "aggregate": "mean",
+    }
+  }
+}
+// ALL chemicals with high presence ALL Area
+vegaEmbed("#vis9a2", vlSpec9a2);
+
+var vlSpec9a1 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "width": 300, "height": 900, 
+  "title": "Fig. 4 - Boxplot showing range of Chemicals (in micrograms) which are found in lesser quantity",
+  "data": {"url": "Boonsong Lekagul waterways readings(ug).csv"},
+  "mark": {
+  "type": "boxplot",
+  "extent": "min-max"
+  // "extent": "1.5"
+  },
+  "transform": [
+  // {"filter": {"field": "measure", "equal": "Iron"}},
+  {"filter": {"field": "value", "lt": "100"}}
+  ],
+  "encoding": {
+  "y": {
+  "field": "measure",
+  "type": "ordinal",
+  // "sort": {"op": "mean", "field": "value"}
+  },
+  "x": {
+  "field": "value",
+  "type": "quantitative",
+  "title": "Value",
+  },
+  "size": {"value": 15}
+  }
+  
+}
+// Boxplot of ALL chemicals with high presence
+vegaEmbed("#vis9a1", vlSpec9a1);
+
+
+
+var vlSpec501 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "width": 300, "height": 900,
+  "title": "Fig. 5 - All Chemicals (in milligrams) found over time at Kohsoom", 
+  "data": {"url": "Boonsong Lekagul waterways readings(mg).csv"},
+  "mark": "circle",
+        "transform": [          
+          {"filter": {"field": "location", "equal": "Kohsoom"}},
+          {"filter": {"field": "value", "lt": "100"}}
+          ],
+  "encoding": {
+    "y": {      
+      "field": "measure",      
+      "type": "nominal",      
+      "sort": {"op": "mean", "field": "value"}    },
+    "x": {     
+       "timeUnit": "yearmonth",          
+        "field": "sample date",     
+        "type": "temporal",    
+        "title": "Year Month",    },
+    "size": {"field": "value","type": "quantitative",      
+    // "aggregate": "mean",      
+    }
+  }
+}
+// ALL chemicals presence at Kohsoom
+vegaEmbed("#vis501", vlSpec501);
+
+var vlSpec502 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "width": 300, "height": 900, 
+  "title": "Fig. 6 - All Chemicals (in micrograms) found over time at Kohsoom",
+  "data": {"url": "Boonsong Lekagul waterways readings(ug).csv"},
+  "mark": "circle",
+        "transform": [          {"filter": {"field": "location", "equal": "Kohsoom"}},
+          {"filter": {"field": "value", "lt": "100"}}
+          ],
+  "encoding": {
+    "y": {      
+      "field": "measure",      
+      "type": "nominal",      
+      "sort": {"op": "mean", "field": "value"}    },
+    "x": {      
+      "timeUnit": "yearmonth",            
+      "field": "sample date",      
+      "type": "temporal",      
+      "title": "Year Month",    },
+    "size": {"field": "value","type": "quantitative",      
+    // "aggregate": "mean",      
+    }
+  }
+}
+// ALL chemicals presence at Kohsoom
+vegaEmbed("#vis502", vlSpec502);
+
+var vlSpec50a1 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "width": 300, "height": 900, 
+  "title": "Fig. 7 - All Chemicals (in milligrams) found over time at Boonsri",
+  "data": {"url": "Boonsong Lekagul waterways readings(mg).csv"},
+  "mark": "circle",
+        "transform": [          {"filter": {"field": "location", "equal": "Boonsri"}},
+          {"filter": {"field": "value", "lt": "100"}}
+          ],
+  "encoding": {
+    "y": {      "field": "measure",      "type": "nominal",      "sort": {"op": "mean", "field": "value"}    },
+    "x": {      "timeUnit": "yearmonth",            "field": "sample date",      "type": "temporal",      "title": "Year Month",    },
+    "size": {"field": "value","type": "quantitative",      
+    // "aggregate": "mean",      
+    }
+  }
+}
+// ALL chemicals presence at Boonsri
+vegaEmbed("#vis50a1", vlSpec50a1);
+
+var vlSpec50a2 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "width": 300, "height": 900, 
+  "title": "Fig. 8 - All Chemicals (in micograms) found over time at Boonsri",
+  "data": {"url": "Boonsong Lekagul waterways readings(ug).csv"},
+  "mark": "circle",
+        "transform": [          {"filter": {"field": "location", "equal": "Boonsri"}},
+          {"filter": {"field": "value", "lt": "100"}}
+          ],
+  "encoding": {
+    "y": {      "field": "measure",      "type": "nominal",      "sort": {"op": "mean", "field": "value"}    },
+    "x": {      "timeUnit": "yearmonth",            "field": "sample date",      "type": "temporal",      "title": "Year Month",    },
+    "size": {"field": "value","type": "quantitative",      
+    // "aggregate": "mean",      
+    }
+  }
+}
+// ALL chemicals presence at Boonsri
+vegaEmbed("#vis50a2", vlSpec50a2);
+
+
+
+var vlSpec5 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "width": 300, "height": 800, 
+  "title": "Fig. 9 - Heat Map unable to represent data due to dataset having extreme values/different units",
+
+  "data": {"url": "Boonsong Lekagul waterways readings.csv"},
+  // "transform": [{"filter": {"field": "location", "equal": "Kohsoom"}}],
+  "mark": "rect",
+  "encoding": {
+    "y": {"field": "measure","type": "nominal", "title": "Chemicals in Microgram & Milligram"},
+    "x": {"field": "location","type": "nominal", "title": "Locations"},
+    "color": {"aggregate": "mean","field": "value","type": "quantitative"}
+    }
+  }
+  vegaEmbed("#vis5", vlSpec5);
+  
+  var vlSpec5a = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "width": 300, "height": 800, 
+  "title": "Fig. 10 - Heat Map representing data post processing of dataset",
+
+  "data": {"url": "Boonsong Lekagul waterways readings(ug).csv"},
+  "transform": [
+    // {"filter": {"field": "location", "equal": "Kohsoom"}},
+    {"filter": {"field": "value", "lt": "100"}}
+
+    ],
+  "mark": "rect",
+  "encoding": {
+    "y": {"field": "measure","type": "nominal", "title": "Chemicals in Microgram"},
+    "x": {"field": "location","type": "nominal", "title": "Locations"},
+    "color": {"aggregate": "mean","field": "value","type": "quantitative"}
+    }
+  }
+  vegaEmbed("#vis5a", vlSpec5a);
+
+// Count of records by Chemical by Location -- Bar Chart
+  var vlSpec8 = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+
+  "width": 750, "height": 150,  
+  "data": {"url": "Boonsong Lekagul waterways readings.csv"},
+  "title": "Fig. 11 - Count of records of chemicals per Location",
+  "mark": { "type": "bar",},
+  "encoding": {
+    "x": {"field": "measure","type": "nominal","title":"Chemicals"},    
+    "y": {"aggregate": "count", "field": "id", "type": "nominal","title":"No of Records"},
+    "row": {"field": "location","type": "nominal","axis": {"title": "Locations"}}    
+   }
+  }
+// Count of resords by Chemical by Location -- Bar Chart
+vegaEmbed("#vis8", vlSpec8);
+
+var vlSpec81 = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+
+  "width": 750, "height": 150,  
+  "data": {"url": "Boonsong Lekagul waterways readings.csv"},
+  "title": "Fig. 12 - Count of records collected over time per Location",
+
+  "mark": {"type": "bar",},
+  "encoding": {
+    "x": {"timeUnit": "yearmonth","field": "sample date","type": "ordinal"},
+     "y": {"aggregate": "count","field": "id","type": "nominal","title":"No of Records"},
+    "row": {"field": "location","type": "nominal","axis": {"title": "Locations"}}    
+    }
+  }
+// Count of resords collected by time  
+vegaEmbed("#vis81", vlSpec81);
+
+
+
+var vlSpec70a1 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "width": 300, "height": 900, 
+  "title": "Fig. 13 - All Chemicals (in milligrams) found at different location",
+  "data": {"url": "Boonsong Lekagul waterways readings(mg).csv"},
+  "mark": "circle",
+        "transform": [          
+          {"filter": {"field": "value", "lt": "100"}}
+          ],
+  "encoding": {
+    "y": {      "field": "measure",      "type": "nominal",      
+    "sort": {"op": "mean", "field": "value"}    
+    },
+    "x": {      "field": "location",      "type": "nominal",      
+    },
+    "size": {"field": "value","type": "quantitative",      
+    "aggregate": "median",      
+    }
+  }
+}
+// ALL chemicals by location 
+vegaEmbed("#vis70a1", vlSpec70a1);
+
+var vlSpec70a2 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "width": 300, "height": 900, 
+  "title": "Fig. 14 - All Chemicals (in milligrams) found at different location",
+  "data": {"url": "Boonsong Lekagul waterways readings(ug).csv"},
+  "mark": "circle",
+        "transform": [          
+          // {"filter": {"field": "value", "lt": "100"}}
+          ],
+  "encoding": {
+    "y": {      "field": "measure",      "type": "nominal",      
+    "sort": {"op": "mean", "field": "value"}    
+    },
+    "x": {      "field": "location",      "type": "nominal",      
+    },
+    "size": {"field": "value","type": "quantitative",      
+    "aggregate": "median",      
+    }
+  }
+}
+// ALL chemicals presence at Boonsri
+vegaEmbed("#vis70a2", vlSpec70a2);
+
+var vlSpec2 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "width": 750, "height": 300, 
+  "data": {"url": "Boonsong Lekagul waterways readings.csv"},
+  "title": "Fig. 15 - Chemicals Hazardous/Dangerous to life found at BL Waterways at different period of time",
+
+  "mark": "circle",
+        "transform": [{"filter": {"field": "measure", "oneOf": ["AOX","Methylosmoline","Chromium","Arsenic", "Barium","AGOC-3A"]}}],
+  "encoding": {
+    "y": {
+      "field": "location",
+      "type": "nominal"
+    },
+    "x": {
+      "timeUnit": "yearmonth",      
+      "field": "sample date",
+      "type": "temporal",
+    },
+    "size": {
+      "field": "value",
+      "type": "quantitative",
+      "aggregate": "mean",
+    },
+    "color": {
+          "field": "measure",
+          "type": "nominal",
+  }
+}
+  }
+  vegaEmbed("#vis2", vlSpec2);
+
+
+</script>
+
+
+</body>
+</html>
